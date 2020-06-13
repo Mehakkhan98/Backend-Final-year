@@ -15,6 +15,14 @@ let Student= new Schema({
         type: String,
          default: 'Not Define'
     },
+    Lat:{
+        type: String,
+        default: 'Not Define'
+    },
+    Lang:{
+        type: String,
+        default: 'Not Define'
+    },
     Student_Picture:{
         type: String,
         default: 'Not Define'

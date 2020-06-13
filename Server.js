@@ -671,6 +671,86 @@ todoRoutes.route('/T_By_Fee').post(function(req, res) {
         }
     });
 });
+todoRoutes.route('/T_By_City').post(function(req, res) {
+    console.log("Hello World from Search by Name!")
+    
+    City=req.body.Teacher_City;
+    console.log("Student NAME",User_Name)
+    Todo.find({Teacher_City:City},function(err,user){
+
+        console.log('user',user);
+        if(err)                                                    ///To Search Student By Name
+        {
+            return res.status(400).send('adding new Student failed');
+        }
+       else if(!user)
+        {
+          return res.status(400).send('Invalid User Name or Password!');
+        }
+        else{
+            res.json(user)
+        }
+    });
+});
+
+todoRoutes.route('/T_By_Gender').post(function(req, res) {
+    console.log("Hello World from Search by Name!")
+    Gender=req.body.Teacher_Gender;
+    Todo.find({Teacher_Gender:Gender},function(err,user){
+
+        console.log('user',user);
+        if(err)                                                    ///To Search Student By Name
+        {
+            return res.status(400).send('adding new Student failed');
+        }
+       else if(!user)
+        {
+          return res.status(400).send('Invalid User Name or Password!');
+        }
+        else{
+            res.json(user)
+        }
+    });
+});
+todoRoutes.route('/S_By_Gender').post(function(req, res) {
+    console.log("Hello World from Search by Name!")
+    Gender=req.body.Student_Gender;
+    Students.find({Student_Gender:Gender},function(err,user){
+
+        console.log('user',user);
+        if(err)                                                    ///To Search Student By Name
+        {
+            return res.status(400).send('adding new Student failed');
+        }
+       else if(!user)
+        {
+          return res.status(400).send('Invalid User Name or Password!');
+        }
+        else{
+            res.json(user)
+        }
+    });
+});
+todoRoutes.route('/S_By_City').post(function(req, res) {
+    console.log("Hello World from Search by Name!")
+    
+    City=req.body.Student_City;
+    Students.find({Student_City:City},function(err,user){
+
+        console.log('user',user);
+        if(err)                                                    ///To Search Student By Name
+        {
+            return res.status(400).send('adding new Student failed');
+        }
+       else if(!user)
+        {
+          return res.status(400).send('Invalid User Name or Password!');
+        }
+        else{
+            res.json(user)
+        }
+    });
+});
 todoRoutes.route('/updateTGender').post(function(req, res) {
     Teacher_Name=req.body.User_Name;
     Teacher_Password=req.body.Teacher_Password;

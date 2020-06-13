@@ -59,6 +59,14 @@ let Teacher= new Schema({
         type: String,
         default: 'Not Define'
      },
+     Lat:{
+        type: String,
+        default: 'Not Define'
+    },
+    Lang:{
+        type: String,
+        default: 'Not Define'
+    },
      Desired_Subjects:{
         type: String,
         default: 'Not Define'
