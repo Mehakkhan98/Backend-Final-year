@@ -1072,6 +1072,137 @@ todoRoutes.route('/updateSEmail').post(function(req, res) {
 
 
 
+
+todoRoutes.route('/updateSLikes').post(function(req, res) {
+    Teacher_Name=req.body.User_Name;
+    Teacher_Password=req.body.Student_Password;
+    console.log( "Student log",Teacher_Name)
+    Students.findOne({User_Name:Teacher_Name,Student_Password:Teacher_Password}, function(err, Student) {
+        if (!Student)
+            res.status(404).send("Data  not found");
+        else                                                                  // to update profile picture!
+       
+        Student.Student_Likes=req.body.Student_Likes;
+       
+
+        Student.save().then(Student => {
+                res.json('Todo updated!');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+
+todoRoutes.route('/updateSComment').post(function(req, res) {
+    Teacher_Name=req.body.User_Name;
+    Teacher_Password=req.body.Student_Password;
+    console.log( "Student log",Teacher_Name)
+    Students.findOne({User_Name:Teacher_Name,Student_Password:Teacher_Password}, function(err, Student) {
+        if (!Student)
+            res.status(404).send("Data  not found");
+        else                                                                  // to update profile picture!
+       
+        Student.Student_Comment=req.body.Student_Comment;
+       
+
+        Student.save().then(Student => {
+                res.json('Todo updated!');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+
+todoRoutes.route('/updateTLikes').post(function(req, res) {
+    Teacher_Name=req.body.User_Name;
+    Teacher_Password=req.body.Teacher_Password;
+    console.log( "Student log",Teacher_Name)
+    Todo.findOne({User_Name:Teacher_Name,Teacher_Password:Teacher_Password}, function(err, Student) {
+        if (!Student)
+            res.status(404).send("Data  not found");
+        else                                                                  // to update profile picture!
+       
+        Student.Teacher_Likes=req.body.Teacher_Likes;
+       
+
+        Student.save().then(Student => {
+                res.json('Todo updated!');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+
+
+todoRoutes.route('/updateTComment').post(function(req, res) {
+    Teacher_Name=req.body.User_Name;
+    Teacher_Password=req.body.Teacher_Password;
+    console.log( "Student log",Teacher_Name)
+    Todo.findOne({User_Name:Teacher_Name,Teacher_Password:Teacher_Password}, function(err, Student) {
+        if (!Student)
+            res.status(404).send("Data  not found");
+        else                                                                  // to update profile picture!
+       
+        Student.Teacher_Comment=req.body.Teacher_Comment;
+       
+
+        Student.save().then(Student => {
+                res.json('Todo updated!');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+
+
+todoRoutes.route('/updateTeacherRequest').post(function(req, res) {
+    Teacher_Name=req.body.User_Name;
+   List=req.body.Teacher_FriendList;
+   
+    Todo.findOne({User_Name:Teacher_Name}, function(err, Student) {
+        if (!Student)
+            res.status(404).send("Data  not found");
+        else                                                                  // to update profile picture!
+       
+        Student.Teacher_FriendList=List;
+       
+
+        Student.save().then(Student => {
+                res.json('Todo updated!');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+todoRoutes.route('/updateStudentRequest').post(function(req, res) {
+    console.log("u invoked me and i am invoked")
+    Student_Name=req.body.User_Name;
+   List=req.body.Student_FriendList;
+   
+    Students.findOne({User_Name:Student_Name}, function(err, Student) {
+        if (!Student)
+            res.status(404).send("Data  not found");
+        else                                                                  // to update profile picture!
+       
+        Student.Student_FriendList=req.body.Student_FriendList;
+       
+
+        Student.save().then(Student => {
+                res.json('Todo updated!');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+
+
+
 todoRoutes.route('/Studentupdate/').post(function(req, res) {
     User_Name=req.body.User_Name;
     Teacher_Password=req.body.Student_Password;
@@ -1597,12 +1728,31 @@ todoRoutes.route('/TeacherNotifications').post(function(req, res) {
     Teacher_Name=req.body.User_Name;
     Teacher_Password=req.body.Teacher_Password;
     console.log( "Student log",Teacher_Name)
-    Todo.findOne({User_Name:Teacher_Name,Teacher_Password:Teacher_Password}, function(err, Student) {
+    Todo.findOne({User_Name:Teacher_Name}, function(err, Student) {
         if (!Student)
             res.status(404).send("Data  not found");
         else                                                                  // to update profile picture!
        
         Student.Teacher_Notifications=req.body.Teacher_Notifications;
+       
+
+        Student.save().then(Student => {
+                res.json('Todo updated!');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+todoRoutes.route('/StudentNotifications').post(function(req, res) {
+    Teacher_Name=req.body.User_Name;
+    Teacher_Password=req.body.Teacher_Password;
+    Students.findOne({User_Name:Teacher_Name}, function(err, Student) {
+        if (!Student)
+            res.status(404).send("Data  not found");
+        else                                                                  // to update profile picture!
+       
+        Student.Student_Notifications=req.body.Student_Notifications;
        
 
         Student.save().then(Student => {

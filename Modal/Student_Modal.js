@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Int32 } = require('mongodb');
 const Schema = mongoose.Schema;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,6 +15,10 @@ let Student= new Schema({
     Student_Phone: {
         type: String,
          default: 'Not Define'
+    },
+    Student_Comment: {
+        type: [],
+        
     },
     Lat:{
         type: String,
@@ -44,6 +49,11 @@ let Student= new Schema({
     Student_Fee_Range: {
         type: String,
         default: 'Not Define'
+       
+    }   ,
+    Student_FriendList: {
+        type: [],
+       default:[]
        
     }   ,
     Student_Gender: {
@@ -84,6 +94,10 @@ let Student= new Schema({
     Student_Notifications:{
         type:[]
      },
+     Student_Likes:{
+        type:Number,
+        default: 0
+    },
     Student_Lastgrades:{
         type:String,
        default: 'Not Define'

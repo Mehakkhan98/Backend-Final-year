@@ -15,9 +15,17 @@ let Teacher= new Schema({
         default: 'Not Define'
        
     }   ,
+    Teacher_Comment: {
+         type: [],
+        
+    },
     Teacher_Phone: {
         type: String,
        default: 'Not Define'
+    },
+    Teacher_FriendList: {
+        type: [],
+       default:[]
     },
     Teacher_Fee_Range: {
         type: String,
@@ -58,6 +66,10 @@ let Teacher= new Schema({
      Desired_Class:{
         type: String,
         default: 'Not Define'
+     },
+     Teacher_Likes:{
+        type: Number,
+        default: 0
      },
      Lat:{
         type: String,
